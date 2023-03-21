@@ -1,0 +1,1012 @@
+{
+  "ABIRoot": {
+    "kind": "Root",
+    "name": "TopLevel",
+    "printedName": "TopLevel",
+    "children": [
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "TiendeoGovernor",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Alamofire",
+        "printedName": "Alamofire",
+        "declKind": "Import",
+        "moduleName": "TiendeoGovernor"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "TiendeoGovernor",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "ClientParser",
+        "printedName": "ClientParser",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "sharedInstance",
+            "printedName": "sharedInstance",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ClientParser",
+                "printedName": "TiendeoGovernor.ClientParser",
+                "usr": "s:15TiendeoGovernor12ClientParserC"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15TiendeoGovernor12ClientParserC14sharedInstanceACvpZ",
+            "mangledName": "$s15TiendeoGovernor12ClientParserC14sharedInstanceACvpZ",
+            "moduleName": "TiendeoGovernor",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ClientParser",
+                    "printedName": "TiendeoGovernor.ClientParser",
+                    "usr": "s:15TiendeoGovernor12ClientParserC"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15TiendeoGovernor12ClientParserC14sharedInstanceACvgZ",
+                "mangledName": "$s15TiendeoGovernor12ClientParserC14sharedInstanceACvgZ",
+                "moduleName": "TiendeoGovernor",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "getClient",
+            "printedName": "getClient(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "TiendeoGovernor.ClientEntity?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ClientEntity",
+                    "printedName": "TiendeoGovernor.ClientEntity",
+                    "usr": "s:15TiendeoGovernor12ClientEntityV"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15TiendeoGovernor12ClientParserC03getC0yAA0C6EntityVSgSSSgF",
+            "mangledName": "$s15TiendeoGovernor12ClientParserC03getC0yAA0C6EntityVSgSSSgF",
+            "moduleName": "TiendeoGovernor",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getClient",
+            "printedName": "getClient()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ClientEntity",
+                "printedName": "TiendeoGovernor.ClientEntity",
+                "usr": "s:15TiendeoGovernor12ClientEntityV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15TiendeoGovernor12ClientParserC03getC0AA0C6EntityVyF",
+            "mangledName": "$s15TiendeoGovernor12ClientParserC03getC0AA0C6EntityVyF",
+            "moduleName": "TiendeoGovernor",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:15TiendeoGovernor12ClientParserC",
+        "mangledName": "$s15TiendeoGovernor12ClientParserC",
+        "moduleName": "TiendeoGovernor",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "hasMissingDesignatedInitializers": true
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "TiendeoGovernor",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "ClientEntity",
+        "printedName": "ClientEntity",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "provider",
+            "printedName": "provider",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15TiendeoGovernor12ClientEntityV8providerSSvp",
+            "mangledName": "$s15TiendeoGovernor12ClientEntityV8providerSSvp",
+            "moduleName": "TiendeoGovernor",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15TiendeoGovernor12ClientEntityV8providerSSvg",
+                "mangledName": "$s15TiendeoGovernor12ClientEntityV8providerSSvg",
+                "moduleName": "TiendeoGovernor",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "baseUrl",
+            "printedName": "baseUrl",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15TiendeoGovernor12ClientEntityV7baseUrlSSvp",
+            "mangledName": "$s15TiendeoGovernor12ClientEntityV7baseUrlSSvp",
+            "moduleName": "TiendeoGovernor",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15TiendeoGovernor12ClientEntityV7baseUrlSSvg",
+                "mangledName": "$s15TiendeoGovernor12ClientEntityV7baseUrlSSvg",
+                "moduleName": "TiendeoGovernor",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "context",
+            "printedName": "context",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15TiendeoGovernor12ClientEntityV7contextSSvp",
+            "mangledName": "$s15TiendeoGovernor12ClientEntityV7contextSSvp",
+            "moduleName": "TiendeoGovernor",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15TiendeoGovernor12ClientEntityV7contextSSvg",
+                "mangledName": "$s15TiendeoGovernor12ClientEntityV7contextSSvg",
+                "moduleName": "TiendeoGovernor",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "contextGeofences",
+            "printedName": "contextGeofences",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15TiendeoGovernor12ClientEntityV16contextGeofencesSSvp",
+            "mangledName": "$s15TiendeoGovernor12ClientEntityV16contextGeofencesSSvp",
+            "moduleName": "TiendeoGovernor",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15TiendeoGovernor12ClientEntityV16contextGeofencesSSvg",
+                "mangledName": "$s15TiendeoGovernor12ClientEntityV16contextGeofencesSSvg",
+                "moduleName": "TiendeoGovernor",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "contextCashback",
+            "printedName": "contextCashback",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15TiendeoGovernor12ClientEntityV15contextCashbackSSvp",
+            "mangledName": "$s15TiendeoGovernor12ClientEntityV15contextCashbackSSvp",
+            "moduleName": "TiendeoGovernor",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15TiendeoGovernor12ClientEntityV15contextCashbackSSvg",
+                "mangledName": "$s15TiendeoGovernor12ClientEntityV15contextCashbackSSvg",
+                "moduleName": "TiendeoGovernor",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "countryCode",
+            "printedName": "countryCode",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15TiendeoGovernor12ClientEntityV11countryCodeSSvp",
+            "mangledName": "$s15TiendeoGovernor12ClientEntityV11countryCodeSSvp",
+            "moduleName": "TiendeoGovernor",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15TiendeoGovernor12ClientEntityV11countryCodeSSvg",
+                "mangledName": "$s15TiendeoGovernor12ClientEntityV11countryCodeSSvg",
+                "moduleName": "TiendeoGovernor",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "consumerKey",
+            "printedName": "consumerKey",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15TiendeoGovernor12ClientEntityV11consumerKeySSvp",
+            "mangledName": "$s15TiendeoGovernor12ClientEntityV11consumerKeySSvp",
+            "moduleName": "TiendeoGovernor",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15TiendeoGovernor12ClientEntityV11consumerKeySSvg",
+                "mangledName": "$s15TiendeoGovernor12ClientEntityV11consumerKeySSvg",
+                "moduleName": "TiendeoGovernor",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "consumerSecret",
+            "printedName": "consumerSecret",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15TiendeoGovernor12ClientEntityV14consumerSecretSSvp",
+            "mangledName": "$s15TiendeoGovernor12ClientEntityV14consumerSecretSSvp",
+            "moduleName": "TiendeoGovernor",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15TiendeoGovernor12ClientEntityV14consumerSecretSSvg",
+                "mangledName": "$s15TiendeoGovernor12ClientEntityV14consumerSecretSSvg",
+                "moduleName": "TiendeoGovernor",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "backupUrl",
+            "printedName": "backupUrl",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15TiendeoGovernor12ClientEntityV9backupUrlSSvp",
+            "mangledName": "$s15TiendeoGovernor12ClientEntityV9backupUrlSSvp",
+            "moduleName": "TiendeoGovernor",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15TiendeoGovernor12ClientEntityV9backupUrlSSvg",
+                "mangledName": "$s15TiendeoGovernor12ClientEntityV9backupUrlSSvg",
+                "moduleName": "TiendeoGovernor",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:15TiendeoGovernor12ClientEntityV",
+        "mangledName": "$s15TiendeoGovernor12ClientEntityV",
+        "moduleName": "TiendeoGovernor",
+        "declAttributes": [
+          "AccessControl"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "TiendeoGovernor",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Alamofire",
+        "printedName": "Alamofire",
+        "declKind": "Import",
+        "moduleName": "TiendeoGovernor"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "TiendeoGovernor",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "TiendeoGovernor",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "TiendeoGovernor",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "TiendeoGovernor",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Alamofire",
+        "printedName": "Alamofire",
+        "declKind": "Import",
+        "moduleName": "TiendeoGovernor"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "TiendeoGovernor",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Alamofire",
+        "printedName": "Alamofire",
+        "declKind": "Import",
+        "moduleName": "TiendeoGovernor"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "Governor",
+        "printedName": "Governor",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "shared",
+            "printedName": "shared",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Governor",
+                "printedName": "TiendeoGovernor.Governor",
+                "usr": "s:15TiendeoGovernor0B0C"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15TiendeoGovernor0B0C6sharedACvpZ",
+            "mangledName": "$s15TiendeoGovernor0B0C6sharedACvpZ",
+            "moduleName": "TiendeoGovernor",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Governor",
+                    "printedName": "TiendeoGovernor.Governor",
+                    "usr": "s:15TiendeoGovernor0B0C"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15TiendeoGovernor0B0C6sharedACvgZ",
+                "mangledName": "$s15TiendeoGovernor0B0C6sharedACvgZ",
+                "moduleName": "TiendeoGovernor",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "session",
+            "printedName": "session",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Session",
+                "printedName": "Alamofire.Session",
+                "usr": "s:9Alamofire7SessionC"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15TiendeoGovernor0B0C7session9Alamofire7SessionCvp",
+            "mangledName": "$s15TiendeoGovernor0B0C7session9Alamofire7SessionCvp",
+            "moduleName": "TiendeoGovernor",
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Session",
+                    "printedName": "Alamofire.Session",
+                    "usr": "s:9Alamofire7SessionC"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15TiendeoGovernor0B0C7session9Alamofire7SessionCvg",
+                "mangledName": "$s15TiendeoGovernor0B0C7session9Alamofire7SessionCvg",
+                "moduleName": "TiendeoGovernor",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "setTiendeoKey",
+            "printedName": "setTiendeoKey(tiendeoKey:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15TiendeoGovernor0B0C03setA3Key07tiendeoD0ySS_tF",
+            "mangledName": "$s15TiendeoGovernor0B0C03setA3Key07tiendeoD0ySS_tF",
+            "moduleName": "TiendeoGovernor",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "resetCache",
+            "printedName": "resetCache()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15TiendeoGovernor0B0C10resetCacheyyF",
+            "mangledName": "$s15TiendeoGovernor0B0C10resetCacheyyF",
+            "moduleName": "TiendeoGovernor",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "increaseCacheSize",
+            "printedName": "increaseCacheSize(memoryCapacity:diskCapacity:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15TiendeoGovernor0B0C17increaseCacheSize14memoryCapacity04diskG0ySi_SitF",
+            "mangledName": "$s15TiendeoGovernor0B0C17increaseCacheSize14memoryCapacity04diskG0ySi_SitF",
+            "moduleName": "TiendeoGovernor",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:15TiendeoGovernor0B0C",
+        "mangledName": "$s15TiendeoGovernor0B0C",
+        "moduleName": "TiendeoGovernor",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "hasMissingDesignatedInitializers": true
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "TiendeoGovernor",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "TiendeoGovernor",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "TiendeoGovernor",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      }
+    ],
+    "json_format_version": 8
+  },
+  "ConstValues": [
+    {
+      "filePath": "\/Users\/darioroa\/Documents\/Developer\/tiendeo\/governor-ios\/Source\/ClientParser\/Decrypter.swift",
+      "kind": "StringLiteral",
+      "offset": 208,
+      "length": 13,
+      "value": "\"tiendeo_key\""
+    },
+    {
+      "filePath": "\/Users\/darioroa\/Documents\/Developer\/tiendeo\/governor-ios\/Source\/Data\/ErrorConstants.swift",
+      "kind": "IntegerLiteral",
+      "offset": 264,
+      "length": 3,
+      "value": "401"
+    },
+    {
+      "filePath": "\/Users\/darioroa\/Documents\/Developer\/tiendeo\/governor-ios\/Source\/Data\/ErrorConstants.swift",
+      "kind": "IntegerLiteral",
+      "offset": 307,
+      "length": 3,
+      "value": "403"
+    },
+    {
+      "filePath": "\/Users\/darioroa\/Documents\/Developer\/tiendeo\/governor-ios\/Source\/Data\/ErrorConstants.swift",
+      "kind": "IntegerLiteral",
+      "offset": 349,
+      "length": 3,
+      "value": "404"
+    },
+    {
+      "filePath": "\/Users\/darioroa\/Documents\/Developer\/tiendeo\/governor-ios\/Source\/Data\/ErrorConstants.swift",
+      "kind": "IntegerLiteral",
+      "offset": 402,
+      "length": 3,
+      "value": "500"
+    },
+    {
+      "filePath": "\/Users\/darioroa\/Documents\/Developer\/tiendeo\/governor-ios\/Source\/Data\/ErrorConstants.swift",
+      "kind": "IntegerLiteral",
+      "offset": 440,
+      "length": 5,
+      "value": "1001"
+    },
+    {
+      "filePath": "\/Users\/darioroa\/Documents\/Developer\/tiendeo\/governor-ios\/Source\/Data\/ErrorConstants.swift",
+      "kind": "IntegerLiteral",
+      "offset": 502,
+      "length": 2,
+      "value": "53"
+    },
+    {
+      "filePath": "\/Users\/darioroa\/Documents\/Developer\/tiendeo\/governor-ios\/Source\/Data\/AuthHandler.swift",
+      "kind": "BooleanLiteral",
+      "offset": 566,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/darioroa\/Documents\/Developer\/tiendeo\/governor-ios\/Source\/Data\/AuthHandler.swift",
+      "kind": "Array",
+      "offset": 631,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/darioroa\/Documents\/Developer\/tiendeo\/governor-ios\/Source\/Data\/AuthHandler.swift",
+      "kind": "BooleanLiteral",
+      "offset": 662,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/darioroa\/Documents\/Developer\/tiendeo\/governor-ios\/Source\/Governor.swift",
+      "kind": "IntegerLiteral",
+      "offset": 530,
+      "length": 2,
+      "value": "15"
+    },
+    {
+      "filePath": "\/Users\/darioroa\/Documents\/Developer\/tiendeo\/governor-ios\/Source\/Data\/UserDefaultRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 243,
+      "length": 13,
+      "value": "\"accessToken\""
+    },
+    {
+      "filePath": "\/Users\/darioroa\/Documents\/Developer\/tiendeo\/governor-ios\/Source\/Data\/UserDefaultRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 282,
+      "length": 9,
+      "value": "\"context\""
+    },
+    {
+      "filePath": "\/Users\/darioroa\/Documents\/Developer\/tiendeo\/governor-ios\/Source\/Data\/UserDefaultRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 326,
+      "length": 19,
+      "value": "\"context_geofences\""
+    },
+    {
+      "filePath": "\/Users\/darioroa\/Documents\/Developer\/tiendeo\/governor-ios\/Source\/Data\/UserDefaultRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 379,
+      "length": 18,
+      "value": "\"context_cashback\""
+    },
+    {
+      "filePath": "\/Users\/darioroa\/Documents\/Developer\/tiendeo\/governor-ios\/Source\/Data\/UserDefaultRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 426,
+      "length": 12,
+      "value": "\"tiendeoKey\""
+    },
+    {
+      "filePath": "\/Users\/darioroa\/Documents\/Developer\/tiendeo\/governor-ios\/Source\/Data\/UserDefaultRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 466,
+      "length": 11,
+      "value": "\"cacheTime\""
+    }
+  ]
+}

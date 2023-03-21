@@ -1,0 +1,36 @@
+PODS:
+  - Alamofire (5.6.4)
+  - Governor (1.2.6):
+    - Alamofire (= 5.6.4)
+  - Kingfisher (6.3.0)
+  - RxSwift (6.5.0)
+  - TiendeoCoreLite (1.8.7-lite):
+    - Governor (= 1.2.6)
+    - Kingfisher (= 6.3.0)
+    - RxSwift (= 6.5.0)
+  - ViewerProLite (1.5.7-lite):
+    - TiendeoCoreLite (= 1.8.7-lite)
+
+DEPENDENCIES:
+  - ViewerProLite (= 1.5.7-lite)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - Governor
+    - Kingfisher
+    - RxSwift
+    - TiendeoCoreLite
+    - ViewerProLite
+
+SPEC CHECKSUMS:
+  Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
+  Governor: 63ba0b20f1cacc1a3da846589674ccce8e2f58fb
+  Kingfisher: 6c3df386db71d82c0817a429d2c9421a77396529
+  RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
+  TiendeoCoreLite: f1b52eeb788caeff57110f696b6d966104fc37ef
+  ViewerProLite: 3a81a34d4b99ea8176993548450d10fb4ae3d85e
+
+PODFILE CHECKSUM: d4024eeb070cf761d54ac6ef4637ee5a218bfdf7
+
+COCOAPODS: 1.12.0

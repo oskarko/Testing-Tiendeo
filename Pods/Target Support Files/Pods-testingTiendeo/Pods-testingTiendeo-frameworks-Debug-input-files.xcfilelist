@@ -1,0 +1,7 @@
+${PODS_ROOT}/Target Support Files/Pods-testingTiendeo/Pods-testingTiendeo-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
+${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework
+${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework
+${PODS_XCFRAMEWORKS_BUILD_DIR}/Governor/TiendeoGovernor.framework/TiendeoGovernor
+${PODS_XCFRAMEWORKS_BUILD_DIR}/TiendeoCoreLite/TiendeoCore.framework/TiendeoCore
+${PODS_XCFRAMEWORKS_BUILD_DIR}/ViewerProLite/TiendeoViewerPro.framework/TiendeoViewerPro

@@ -1,0 +1,4 @@
+framework module TiendeoViewerPro {
+  header "TiendeoViewerPro-Swift.h"
+  requires objc
+}

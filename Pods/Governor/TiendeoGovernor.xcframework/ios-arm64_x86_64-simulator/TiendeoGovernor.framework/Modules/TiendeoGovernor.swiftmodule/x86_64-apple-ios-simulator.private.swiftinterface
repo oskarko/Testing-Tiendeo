@@ -1,0 +1,34 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.7.1 (swiftlang-5.7.1.135.3 clang-1400.0.29.51)
+// swift-module-flags: -target x86_64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name TiendeoGovernor
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import Alamofire
+import Foundation
+import Swift
+import _Concurrency
+import _StringProcessing
+@_hasMissingDesignatedInitializers public class ClientParser {
+  public static let sharedInstance: TiendeoGovernor.ClientParser
+  public func getClient(_ countryCode: Swift.String?) -> TiendeoGovernor.ClientEntity?
+  public func getClient() -> TiendeoGovernor.ClientEntity
+  @objc deinit
+}
+public struct ClientEntity {
+  public let provider: Swift.String
+  public let baseUrl: Swift.String
+  public let context: Swift.String
+  public let contextGeofences: Swift.String
+  public let contextCashback: Swift.String
+  public let countryCode: Swift.String
+  public let consumerKey: Swift.String
+  public let consumerSecret: Swift.String
+  public let backupUrl: Swift.String
+}
+@_hasMissingDesignatedInitializers public class Governor {
+  public static let shared: TiendeoGovernor.Governor
+  final public let session: Alamofire.Session
+  public func setTiendeoKey(tiendeoKey: Swift.String)
+  public func resetCache()
+  public func increaseCacheSize(memoryCapacity: Swift.Int, diskCapacity: Swift.Int)
+  @objc deinit
+}

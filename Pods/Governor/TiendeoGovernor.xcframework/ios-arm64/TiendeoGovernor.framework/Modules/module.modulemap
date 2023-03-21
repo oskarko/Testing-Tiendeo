@@ -1,0 +1,4 @@
+framework module TiendeoGovernor {
+  header "TiendeoGovernor-Swift.h"
+  requires objc
+}

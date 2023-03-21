@@ -1,0 +1,548 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.7.1 (swiftlang-5.7.1.135.3 clang-1400.0.29.51)
+// swift-module-flags: -target x86_64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name TiendeoViewerPro
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import Foundation
+import Kingfisher
+import MapKit
+import RxSwift
+import SafariServices
+import Swift
+import TiendeoCore
+import TiendeoGovernor
+import UIKit
+import WebKit
+import _Concurrency
+import _StringProcessing
+@_inheritsConvenienceInitializers public class CatalogPrintStatsCoordinator : TiendeoViewerPro.PrintStatsCoordinator {
+  public func addCatalog(_ catalog: TiendeoCore.CatalogViewEntity, position: Swift.Int, searchRecommenderCatalog: Swift.Bool)
+  public func closeCatalogsPrint(city: Swift.String?, searchWord: Swift.String?, pageType: Swift.String?, origin: Swift.String? = nil, searchType: Swift.String?, view: Swift.String?, userToken: Swift.String, statsLocation: TiendeoCore.StatsLocationEntity, analyticsService: TiendeoViewerPro.ViewerProAnalyticsService = ViewerProAnalyticsService())
+  public func sendCatalogImpression(viewabilityCatalogs: TiendeoCore.PrintsDuration, city: Swift.String?, searchWord: Swift.String?, pageType: Swift.String?, origin: Swift.String? = nil, searchType: Swift.String?, view: Swift.String?, userToken: Swift.String, statsLocation: TiendeoCore.StatsLocationEntity, analyticsService: TiendeoViewerPro.ViewerProAnalyticsService = ViewerProAnalyticsService())
+  override public init(savePrintStatUseCase: TiendeoCore.SavePrintStat)
+  @objc deinit
+}
+public protocol ExternalCatalogOpeningProtocol {
+  var saveFavoriteCatalogDisplayedUseCase: TiendeoCore.SaveFavoriteCatalogDisplayed { get set }
+  var getFavoriteUseCase: TiendeoCore.GetFavorite { get set }
+  var disposeBag: RxSwift.DisposeBag { get set }
+}
+extension TiendeoViewerPro.ExternalCatalogOpeningProtocol {
+  public func saveFavoriteCatalogDisplayed(favoriteCatalogDisplayed: TiendeoCore.FavoriteCatalogDisplayed, retailerId: Swift.String)
+  public func addTiendeoParams(url: Foundation.URL, openingParams: TiendeoViewerPro.OpeningParams, inputStatsEntity: TiendeoCore.InputStatsEntity?) -> Foundation.URL
+  public func needForwardExternalTiendeoParams(retailerId: Swift.String, forwardExternalTiendeoParamsRetailerIds: [Swift.String]) -> Swift.Bool
+}
+public enum StatsOrigin : Swift.String {
+  case catalogsOnboarding
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum StatsEventName : Swift.String {
+  case login
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+open class PrintStatsCoordinator {
+  public var baseStatsUrl: Swift.String?
+  public var provider: Swift.String?
+  public init(savePrintStatUseCase: TiendeoCore.SavePrintStat)
+  public func setup(baseStatsUrl: Swift.String, provider: Swift.String)
+  public func savePrintStat(city: Swift.String?, searchWord: Swift.String?, pageType: Swift.String?, provider: Swift.String?, origin: Swift.String?, searchType: Swift.String?, integration: Swift.String?, view: Swift.String?, userToken: Swift.String, baseStatsUrl: Swift.String?, statsLocation: TiendeoCore.StatsLocationEntity, catalogs: [TiendeoCore.PrintStatCatalogEntity]?, articles: [TiendeoCore.PrintStatArticleEntity]?, banner: TiendeoCore.PrintStatBannerEntity?, promoCoupons: [TiendeoCore.PrintStatPromoCouponEntity]?)
+  @objc deinit
+}
+public struct CardViewerInputEntity : TiendeoViewerPro.CatalogInputProtocol {
+  public var latitude: Swift.Float?
+  public var longitude: Swift.Float?
+  public var countryCode: Swift.String?
+  public var city: Swift.String?
+  public var searchText: Swift.String?
+  public var showExpiredCatalogs: Swift.Bool
+  public var catalogs: [TiendeoCore.Catalog]?
+  public var retailerIdSelected: Swift.String?
+  public init(latitude: Swift.Float? = nil, longitude: Swift.Float? = nil, countryCode: Swift.String? = nil, city: Swift.String? = nil, searchText: Swift.String? = nil, showExpiredCatalogs: Swift.Bool = false, catalogs: [TiendeoCore.Catalog]? = nil, retailerIdSelected: Swift.String? = nil)
+}
+public struct ViewerProConstants {
+  public struct Stats {
+    public static let undefined: Swift.String
+  }
+  public struct NotificationCenter {
+    public static let favoriteCatalogDisplayed: Swift.String
+  }
+}
+public protocol AdapterDisplayCellProtocol {
+  var collectionView: UIKit.UICollectionView! { get }
+  func notifyDisplayedCells()
+  func notifyDisplayedItem(at indexPath: Foundation.IndexPath)
+}
+extension TiendeoViewerPro.AdapterDisplayCellProtocol where Self : ObjectiveC.NSObject {
+  public func notifyDisplayedCells()
+}
+public protocol AdapterDisplayCatalogProtocol {
+  var willDisplayCatalog: ((TiendeoCore.CatalogViewEntity, Swift.Int?, Swift.String?) -> Swift.Void)? { get set }
+}
+public enum ProductDetailEvents : TiendeoCore.LogEvent {
+  case shareButtonPressedEvent(TiendeoViewerPro.ProductDetailEvents.ParametersType)
+  case tagBoxSavedEvent(TiendeoViewerPro.ProductDetailEvents.ParametersType)
+  case tagBoxDeletedEvent(TiendeoViewerPro.ProductDetailEvents.ParametersType)
+  case openUrlButtonPressedEvent(TiendeoViewerPro.ProductDetailEvents.ParametersType)
+  case salesPrintDetail(TiendeoViewerPro.ProductDetailEvents.ParametersType)
+  case salesShareButtonPressed(TiendeoViewerPro.ProductDetailEvents.ParametersType)
+  case salesViewOfferButtonPressed(TiendeoViewerPro.ProductDetailEvents.ParametersType)
+  public var parameters: TiendeoViewerPro.ProductDetailEvents.ParametersType {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+}
+public enum ClipsTutorialEvents : TiendeoCore.LogEvent {
+  case okButtonPressedEvent(TiendeoViewerPro.ClipsTutorialEvents.ParametersType)
+  case dontShowAgainPressedEvent(TiendeoViewerPro.ClipsTutorialEvents.ParametersType)
+  case closeButtonPressedEvent(TiendeoViewerPro.ClipsTutorialEvents.ParametersType)
+  case automaticallyOpenedEvent(TiendeoViewerPro.ClipsTutorialEvents.ParametersType)
+  case howToClipPressedEvent(TiendeoViewerPro.ClipsTutorialEvents.ParametersType)
+  public var parameters: TiendeoViewerPro.ClipsTutorialEvents.ParametersType {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+}
+public protocol OpenExternalCatalogAssembler : TiendeoViewerPro.SaveFavoriteCatalogDisplayedAssembler {
+  func resolve() -> TiendeoCore.GetFavorite
+  func resolve() -> TiendeoCore.FavoritesRepository
+}
+extension TiendeoViewerPro.OpenExternalCatalogAssembler {
+  public func resolve() -> TiendeoCore.GetFavorite
+  public func resolve() -> TiendeoCore.FavoritesRepository
+}
+extension TiendeoCore.ReadingEndAction {
+  public static var closeViewerActions: Swift.Set<TiendeoCore.ReadingEndAction>
+  public var isCloseAction: Swift.Bool {
+    get
+  }
+}
+public enum CardViewerEvents : TiendeoCore.LogEvent {
+  case openCatalog(TiendeoViewerPro.CardViewerEvents.ParametersType)
+  case swipeOnCardViewer(TiendeoViewerPro.CardViewerEvents.ParametersType)
+  case catalogLeftSideClicked(TiendeoViewerPro.CardViewerEvents.ParametersType)
+  case catalogRightSideClicked(TiendeoViewerPro.CardViewerEvents.ParametersType)
+  case printCenterButton(TiendeoViewerPro.CardViewerEvents.ParametersType)
+  case openCatalogCenter(TiendeoViewerPro.CardViewerEvents.ParametersType)
+  case swipeOnStoryCarrusel(TiendeoViewerPro.CardViewerEvents.ParametersType)
+  public var parameters: TiendeoViewerPro.CardViewerEvents.ParametersType {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+}
+public enum ClipStatus {
+  case added
+  case removed
+  public static func == (a: TiendeoViewerPro.ClipStatus, b: TiendeoViewerPro.ClipStatus) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public protocol ViewerProDelegate : AnyObject {
+  func viewerProClosed(_ viewer: TiendeoViewerPro.ViewerType)
+  func didUpdateClipStatus(_ clip: TiendeoViewerPro.ParentClipViewerPro, status: TiendeoViewerPro.ClipStatus)
+  func updateFavorite(favoriteId: Swift.String, retailerId: Swift.String, retailerName: Swift.String, type: Swift.Int, status: Swift.Bool)
+  func noCatalogs()
+  func openClips()
+  func detailProductButtonPressed(clip: TiendeoViewerPro.ClipViewerPro)
+  func favoriteCatalogDisplayed(favoriteCatalogDisplayed: TiendeoCore.FavoriteCatalogDisplayed)
+}
+extension TiendeoViewerPro.ViewerProDelegate {
+  public func viewerProClosed(_ viewer: TiendeoViewerPro.ViewerType)
+  public func didUpdateClipStatus(_ clip: TiendeoViewerPro.ParentClipViewerPro, status: TiendeoViewerPro.ClipStatus)
+  public func updateFavorite(favoriteId: Swift.String, retailerId: Swift.String, retailerName: Swift.String, type: Swift.Int, status: Swift.Bool)
+  public func noCatalogs()
+  public func openClips()
+  public func detailProductButtonPressed(clip: TiendeoViewerPro.ClipViewerPro)
+  public func favoriteCatalogDisplayed(favoriteCatalogDisplayed: TiendeoCore.FavoriteCatalogDisplayed)
+}
+public protocol ShopfullyCatalogAnalyticsService {
+  func sendCatalogOpenEvent(shopfullyId: Swift.String, catalogPage: Swift.Int, inputStatsEntity: TiendeoCore.InputStatsEntity)
+  func sendCatalogBrowseEvent(shopfullyId: Swift.String, catalogPage: Swift.Int, inputStatsEntity: TiendeoCore.InputStatsEntity)
+  func sendCatalogCloseEvent(shopfullyId: Swift.String, catalogPage: Swift.Int, inputStatsEntity: TiendeoCore.InputStatsEntity)
+  func sendCatalogImpressionEvent(shopfullyId: Swift.String, affinity: Swift.Int?, catalogPage: Swift.Int, printStatEntity: TiendeoCore.PrintStatEntity, duration: Foundation.TimeInterval)
+}
+extension TiendeoViewerPro.ViewerProAnalyticsService : TiendeoViewerPro.ShopfullyCatalogAnalyticsService {
+  public func sendCatalogOpenEvent(shopfullyId: Swift.String, catalogPage: Swift.Int, inputStatsEntity: TiendeoCore.InputStatsEntity)
+  public func sendCatalogBrowseEvent(shopfullyId: Swift.String, catalogPage: Swift.Int, inputStatsEntity: TiendeoCore.InputStatsEntity)
+  public func sendCatalogCloseEvent(shopfullyId: Swift.String, catalogPage: Swift.Int, inputStatsEntity: TiendeoCore.InputStatsEntity)
+  public func sendCatalogImpressionEvent(shopfullyId: Swift.String, affinity: Swift.Int?, catalogPage: Swift.Int, printStatEntity: TiendeoCore.PrintStatEntity, duration: Foundation.TimeInterval)
+}
+public struct ClipViewerPro {
+  public let clipId: Swift.String
+  public let pageNumber: Swift.Int
+  public let imageName: Swift.String?
+  public let title: Swift.String?
+  public let catalogId: Swift.String?
+  public let tagProductId: Swift.String?
+  public let tagBrandId: Swift.String?
+  public let retailerName: Swift.String?
+  public let expirationDate: Foundation.Date?
+  public let timestamp: Swift.Double?
+  public let url: Swift.String?
+  public let price: Swift.String?
+  public let infoPrice: Swift.String?
+  public let description: Swift.String?
+  public let brandName: Swift.String?
+  public let chips: [TiendeoCore.Chip]?
+  public let oldPrice: Swift.String?
+  public let legalText: Swift.String?
+  public var checked: Swift.Bool?
+  public var retailerLogo: Swift.String?
+  public var sku: Swift.String?
+  public var discountCode: Swift.String?
+  public var type: TiendeoCore.OfferType?
+  public var shippingText: Swift.String?
+  public let parentId: Swift.String?
+  public let siblingPosition: Swift.Int?
+  public init(clipId: Swift.String, pageNumber: Swift.Int, imageName: Swift.String?, title: Swift.String?, catalogId: Swift.String?, tagProductId: Swift.String?, tagBrandId: Swift.String?, retailerName: Swift.String?, expirationDate: Foundation.Date?, timestamp: Swift.Double?, url: Swift.String?, price: Swift.String?, infoPrice: Swift.String?, description: Swift.String?, brandName: Swift.String?, chips: [TiendeoCore.Chip]?, oldPrice: Swift.String?, legalText: Swift.String?, checked: Swift.Bool? = false, retailerLogo: Swift.String?, sku: Swift.String?, discountCode: Swift.String? = nil, type: TiendeoCore.OfferType? = nil, shippingText: Swift.String? = nil, parentId: Swift.String?, siblingPosition: Swift.Int?)
+}
+extension TiendeoCore.ArticleViewEntity {
+  public func transformToClipViewerPro() -> TiendeoViewerPro.ClipViewerPro
+}
+public enum DynamicCatalogEvents : TiendeoCore.LogEvent {
+  case favoriteMenuPressed(Swift.Bool, TiendeoViewerPro.DynamicCatalogEvents.ParametersType)
+  case shareCatalogMenuPressed(TiendeoViewerPro.DynamicCatalogEvents.ParametersType)
+  case swipeOnDynamicCatalog(Swift.String, Swift.String, Swift.String, TiendeoViewerPro.DynamicCatalogEvents.ParametersType)
+  case tabDynamicCatalogPressed(Swift.String, Swift.String, Swift.String, TiendeoViewerPro.DynamicCatalogEvents.ParametersType)
+  case viewMoreDynamicDetailButtonPressed(TiendeoViewerPro.DynamicCatalogEvents.ParametersType)
+  public var parameters: TiendeoViewerPro.DynamicCatalogEvents.ParametersType {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+}
+public struct CatalogInputEntity : TiendeoViewerPro.CatalogInputProtocol {
+  public var catalogId: Swift.String
+  public var latitude: Swift.Float?
+  public var longitude: Swift.Float?
+  public var city: Swift.String?
+  public var countryCode: Swift.String
+  public var page: Swift.Int
+  public var modelName: Swift.String?
+  public var showExpiredCatalogs: Swift.Bool
+  public init(catalogId: Swift.String, latitude: Swift.Float? = nil, longitude: Swift.Float? = nil, city: Swift.String? = nil, countryCode: Swift.String, page: Swift.Int = 1, modelName: Swift.String? = nil, showExpiredCatalogs: Swift.Bool = false)
+}
+public struct DynamicCatalogInputEntity : TiendeoViewerPro.CatalogInputProtocol {
+  public var catalogId: Swift.String
+  public var initialPage: Swift.Int
+  public var countryCode: Swift.String
+  public var city: Swift.String
+  public var showExpiredCatalogs: Swift.Bool
+  public var modelName: Swift.String?
+  public init(catalogId: Swift.String, initialPage: Swift.Int, countryCode: Swift.String, city: Swift.String, showExpiredCatalogs: Swift.Bool = false, modelName: Swift.String? = nil)
+}
+public protocol SaveFavoriteCatalogDisplayedAssembler {
+  func resolve() -> TiendeoCore.SaveFavoriteCatalogDisplayed
+  func resolve() -> TiendeoCore.FavoriteCatalogDisplayedRepository
+}
+extension TiendeoViewerPro.SaveFavoriteCatalogDisplayedAssembler {
+  public func resolve() -> TiendeoCore.SaveFavoriteCatalogDisplayed
+  public func resolve() -> TiendeoCore.FavoriteCatalogDisplayedRepository
+}
+@_hasMissingDesignatedInitializers public class ViewerPro : TiendeoCore.GetAppDataProtocol {
+  public static let sharedInstance: TiendeoViewerPro.ViewerPro
+  public var resetCacheAlways: Swift.Bool
+  weak open var viewerProDelegate: TiendeoViewerPro.ViewerProDelegate?
+  public func initAds()
+  public func showCatalog(from viewController: UIKit.UIViewController, catalogInputEntity: TiendeoViewerPro.CatalogInputEntity, inputStatsEntity: TiendeoCore.InputStatsEntity, delegate: TiendeoViewerPro.ViewerProDelegate)
+  public func getCatalog(with catalogInputEntity: TiendeoViewerPro.CatalogInputEntity, inputStatsEntity: TiendeoCore.InputStatsEntity, delegate: TiendeoViewerPro.ViewerProDelegate) -> UIKit.UIViewController
+  public func showDynamicCatalog(with dynamicCatalogInputEntity: TiendeoViewerPro.DynamicCatalogInputEntity, inputStatsEntity: TiendeoCore.InputStatsEntity, from viewController: UIKit.UIViewController, clip: TiendeoViewerPro.ClipViewerPro?, delegate: TiendeoViewerPro.ViewerProDelegate)
+  public func openCatalogContainer(from viewController: UIKit.UIViewController, catalogContainerInputEntity: TiendeoViewerPro.CatalogContainerInputEntity, inputStatsEntity: TiendeoCore.InputStatsEntity, delegate: TiendeoViewerPro.ViewerProDelegate)
+  public func showCatalogByProduct(from viewController: UIKit.UIViewController, catalogInputEntity: TiendeoViewerPro.CatalogInputEntity, clip: TiendeoViewerPro.ClipViewerPro, inputStatsEntity: TiendeoCore.InputStatsEntity, delegate: TiendeoViewerPro.ViewerProDelegate)
+  public func getSavedClips(countryCode: Swift.String, completion: @escaping ([TiendeoViewerPro.ClipViewerPro]) -> Swift.Void)
+  public func showCatalogsList(from viewController: UIKit.UIViewController, catalogListInput: TiendeoViewerPro.CatalogListInputEntity, delegate: TiendeoViewerPro.ViewerProDelegate?, inputStatsEntity: TiendeoCore.InputStatsEntity)
+  public func getCatalogsListViewController(catalogListInput: TiendeoViewerPro.CatalogListInputEntity, inputStatsEntity: TiendeoCore.InputStatsEntity, delegate: TiendeoViewerPro.ViewerProDelegate?, completion: @escaping (UIKit.UIViewController?) -> Swift.Void)
+  public func showStoreDetailViewController(from viewController: UIKit.UIViewController, storeDetailInput: TiendeoViewerPro.StoreDetailInputEntity, delegate: TiendeoViewerPro.ViewerProDelegate?, inputStatsEntity: TiendeoCore.InputStatsEntity)
+  public func showCardViewerViewController(from viewController: UIKit.UIViewController, cardViewerInputEntity: TiendeoViewerPro.CardViewerInputEntity, delegate: TiendeoViewerPro.ViewerProDelegate?, inputStatsEntity: TiendeoCore.InputStatsEntity)
+  @available(*, unavailable, message: "has been renamed to 'getNumberOfCatalogs(catalogListInput:completion:)'")
+  public func getNumberOfCatalogs(retailerId: Swift.String, storeId: Swift.String, countryCode: Swift.String, completion: @escaping (Swift.Int) -> Swift.Void)
+  public func getNumberOfCatalogs(catalogListInput: TiendeoViewerPro.CatalogListInputEntity, completion: @escaping (Swift.Int) -> Swift.Void)
+  @available(*, unavailable, message: "has been renamed to 'getCatalogs(catalogListInput:completion:)'")
+  public func getCatalogs(retailerId: Swift.String, storeId: Swift.String, countryCode: Swift.String, completion: @escaping ([TiendeoCore.CatalogViewEntity]) -> Swift.Void)
+  public func getCatalogs(catalogListInput: TiendeoViewerPro.CatalogListInputEntity, completion: @escaping ([TiendeoCore.CatalogViewEntity]) -> Swift.Void)
+  public func showProductDetail(from viewController: UIKit.UIViewController, countryCode: Swift.String, city: Swift.String? = nil, clip: TiendeoViewerPro.ClipViewerPro, delegate: TiendeoViewerPro.ViewerProDelegate?, inputStatsEntity: TiendeoCore.InputStatsEntity)
+  @objc deinit
+}
+public enum ViewerType {
+  case catalogViewer
+  case cardViewer
+  public static func == (a: TiendeoViewerPro.ViewerType, b: TiendeoViewerPro.ViewerType) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class CouponCodeView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func awakeFromNib()
+  @_Concurrency.MainActor(unsafe) public class func loadView(with size: CoreFoundation.CGSize) -> TiendeoViewerPro.CouponCodeView
+  @_Concurrency.MainActor(unsafe) public func setup(with article: TiendeoCore.ArticleViewEntity, copyButtonPressed: ((Swift.String) -> Swift.Void)?)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+extension Foundation.URL {
+  public func appendOpeningStatParams(_ url: Foundation.URL, latitude: Swift.Float?, longitude: Swift.Float?, appUserId: Swift.String?, provider: Swift.String, platform: Swift.String) -> Foundation.URL
+  public func appendParam(name: Swift.String, value: Swift.String) -> Foundation.URL
+}
+public class ViewerProAnalyticsService {
+  public init()
+  @objc deinit
+}
+public protocol AdapterScrollProtocol {
+  var collectionView: UIKit.UICollectionView! { get }
+  var didScrollUp: (() -> Swift.Void)? { get set }
+  var didScrollDownContentOffset: (() -> Swift.Void)? { get set }
+  func scrollToTop(animated: Swift.Bool)
+}
+extension TiendeoViewerPro.AdapterScrollProtocol {
+  public func didScroll(_ scrollView: UIKit.UIScrollView)
+}
+extension UIKit.UIAlertController {
+  @_Concurrency.MainActor(unsafe) public class func obtainOpenMapAlert(name: Swift.String, latitude: Swift.Float, longitude: Swift.Float) -> UIKit.UIAlertController
+}
+public protocol CatalogPrintStatsProtocol : TiendeoViewerPro.PrintStatsProtocol {
+  var catalogPrintStatsCoordinator: TiendeoViewerPro.CatalogPrintStatsCoordinator { get set }
+}
+extension TiendeoViewerPro.CatalogPrintStatsProtocol {
+  public func setupCatalogPrintStatsCoordinator(baseStatsUrl: Swift.String, provider: Swift.String)
+  public func addCatalogToPrintStat(_ catalog: TiendeoCore.CatalogViewEntity, position: Swift.Int)
+  public func addSearchRecommenderCatalogToPrintStat(_ catalog: TiendeoCore.CatalogViewEntity, position: Swift.Int)
+  public func addArticleToCatalogsPrintStat(_ article: TiendeoCore.ArticleViewEntity, position: Swift.Int)
+  public func closeHomePrint(city: Swift.String?, localizeStringKey: Swift.String, statsLocation: TiendeoCore.StatsLocationEntity)
+  public func sendHomePrint(city: Swift.String?, localizeStringKey: Swift.String, statsLocation: TiendeoCore.StatsLocationEntity, viewabilityCatalogs: TiendeoCore.PrintsDuration)
+  public func closeSearchPrint(city: Swift.String?, searchWord: Swift.String?, searchResultType: Swift.String?, statsLocation: TiendeoCore.StatsLocationEntity)
+  public func sendSearchPrint(city: Swift.String?, searchWord: Swift.String?, searchResultType: Swift.String?, statsLocation: TiendeoCore.StatsLocationEntity, viewabilityCatalogs: TiendeoCore.PrintsDuration)
+  public func closeStoreDetailPrint(city: Swift.String?, searchWord: Swift.String?, statsLocation: TiendeoCore.StatsLocationEntity)
+  public func sendStoreDetailPrint(city: Swift.String?, searchWord: Swift.String?, statsLocation: TiendeoCore.StatsLocationEntity, viewabilityCatalogs: TiendeoCore.PrintsDuration)
+  public func closeCatalogViewerPrint(city: Swift.String?, searchWord: Swift.String?, viewType: TiendeoCore.StatsView, statsLocation: TiendeoCore.StatsLocationEntity)
+  public func sendCatalogViewerPrint(city: Swift.String?, searchWord: Swift.String?, viewType: TiendeoCore.StatsView, statsLocation: TiendeoCore.StatsLocationEntity, viewabilityCatalogs: TiendeoCore.PrintsDuration)
+  public func closeSearchArticleListCatalogsPrint(city: Swift.String?, searchWord: Swift.String, searchResultType: Swift.String?, statsLocation: TiendeoCore.StatsLocationEntity)
+  public func sendSearchArticleListCatalogsPrint(city: Swift.String?, searchWord: Swift.String, searchResultType: Swift.String?, statsLocation: TiendeoCore.StatsLocationEntity, viewabilityCatalogs: TiendeoCore.PrintsDuration)
+}
+public struct CatalogListInputEntity : TiendeoViewerPro.CatalogInputProtocol {
+  public var latitude: Swift.Float?
+  public var longitude: Swift.Float?
+  public var countryCode: Swift.String
+  public var city: Swift.String?
+  public var storeId: Swift.String?
+  public var retailerId: Swift.String?
+  public var mallId: Swift.String?
+  public var searchText: Swift.String?
+  public var searchType: Swift.String?
+  public var showExpiredCatalogs: Swift.Bool
+  public init(latitude: Swift.Float? = nil, longitude: Swift.Float? = nil, countryCode: Swift.String, city: Swift.String? = nil, storeId: Swift.String? = nil, retailerId: Swift.String? = nil, mallId: Swift.String? = nil, searchText: Swift.String? = nil, searchType: Swift.String? = nil, showExpiredCatalogs: Swift.Bool = false)
+}
+public enum PromoCouponResponse : Swift.Int, Swift.Error {
+  case genericError
+  case loyaltyCardNotExist
+  case parametersException
+  case genericLoyaltyCardError
+  case invalidLoyaltyCard
+  case alreadyRedeemed
+  case success
+  public var localizedDescription: Swift.String {
+    get
+  }
+  public var code: Swift.Int {
+    get
+  }
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public struct StoreDetailInputEntity : TiendeoViewerPro.CatalogInputProtocol {
+  public var storeId: Swift.String
+  public var city: Swift.String
+  public var countryCode: Swift.String
+  public var showExpiredCatalogs: Swift.Bool
+  public init(storeId: Swift.String, city: Swift.String, countryCode: Swift.String, showExpiredCatalogs: Swift.Bool = false)
+}
+public protocol SendCatalogOpeningStatsProtocol {
+  var sendCatalogOpeningStatsUseCase: TiendeoCore.SendCatalogOpeningStats { get set }
+  var disposeBag: RxSwift.DisposeBag { get set }
+}
+extension TiendeoViewerPro.SendCatalogOpeningStatsProtocol {
+  public func sendCatalogOpeningStats(baseStatsUrl: Swift.String, catalogId: Swift.String, catalogPage: Swift.Int, shopfullyId: Swift.String?, modelName: Swift.String?, retailerId: Swift.String?, retailerName: Swift.String?, categoryName: Swift.String?, positionInList: Swift.Int, provider: Swift.String, isOnCampaing: Swift.Bool, inputStatsEntity: TiendeoCore.InputStatsEntity?, anayticsService: TiendeoViewerPro.ViewerProAnalyticsService = ViewerProAnalyticsService(), userDefaultRepository: TiendeoCore.UserDefaultRepository = UserDefaultRepository())
+}
+public struct OpeningParams {
+  public var catalogId: Swift.String
+  public var catalogPage: Swift.Int
+  public var shopfullyId: Swift.String?
+  public var modelName: Swift.String?
+  public var retailerId: Swift.String?
+  public var retailerName: Swift.String?
+  public var categoryName: Swift.String?
+  public var position: Swift.Int
+  public var baseUrlStatsApi: Swift.String
+  public var pageType: Swift.String
+  public var searchType: Swift.String
+  public var searchWord: Swift.String?
+  public var view: Swift.String?
+  public var isOnCampaing: Swift.Bool
+  public var provider: Swift.String
+  public init(catalogId: Swift.String, catalogPage: Swift.Int, shopfullyId: Swift.String?, modelName: Swift.String? = nil, retailerId: Swift.String? = nil, retailerName: Swift.String? = nil, categoryName: Swift.String? = nil, position: Swift.Int, baseUrlStatsApi: Swift.String, pageType: Swift.String, searchType: Swift.String, searchWord: Swift.String? = nil, view: Swift.String? = nil, isOnCampaing: Swift.Bool, provider: Swift.String)
+}
+public enum StoreDetailEvents : TiendeoCore.LogEvent {
+  case directionIconPressed(TiendeoViewerPro.StoreDetailEvents.ParametersType)
+  case telephoneNumberPressed(TiendeoViewerPro.StoreDetailEvents.ParametersType)
+  case storeWebPressed(TiendeoViewerPro.StoreDetailEvents.ParametersType)
+  case catalogOpenRecentOffers(TiendeoViewerPro.StoreDetailEvents.ParametersType)
+  case topBarXpressed(TiendeoViewerPro.StoreDetailEvents.ParametersType)
+  public var parameters: TiendeoViewerPro.StoreDetailEvents.ParametersType {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+}
+public enum PromoCouponDetailEvents : TiendeoCore.LogEvent {
+  case giftClipButtonPressed(Swift.Bool, TiendeoViewerPro.PromoCouponDetailEvents.ParametersType)
+  case printClipButtonPressed(Swift.Bool, TiendeoViewerPro.PromoCouponDetailEvents.ParametersType)
+  case loyaltyClipButtonPressed(Swift.Bool, TiendeoViewerPro.PromoCouponDetailEvents.ParametersType)
+  case participateButtonPressed(TiendeoViewerPro.PromoCouponDetailEvents.ParametersType)
+  case printButtonPressed(TiendeoViewerPro.PromoCouponDetailEvents.ParametersType)
+  case activateButtonPressed(TiendeoViewerPro.PromoCouponDetailEvents.ParametersType)
+  case notNowButtonPressed(TiendeoViewerPro.PromoCouponDetailEvents.ParametersType)
+  case cancelButtonPressed(TiendeoViewerPro.PromoCouponDetailEvents.ParametersType)
+  case acceptButtonPressed(TiendeoViewerPro.PromoCouponDetailEvents.ParametersType)
+  public var parameters: TiendeoViewerPro.PromoCouponDetailEvents.ParametersType {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+}
+public enum PrintStatsDataType {
+  case viewability(TiendeoCore.PrintsDuration)
+  case empty
+}
+public protocol PrintStatsProtocol {
+  func uiDidAppear()
+  func uiDidDisappear()
+  func addObserverToApplicationLifeCycle()
+  func removeObserverFromApplicationLifeCycle()
+  func closeCurrentPrint()
+}
+extension TiendeoViewerPro.PrintStatsProtocol {
+  public func removeObserverFromApplicationLifeCycle()
+  public func transformSearchResultTypeToStatsSearchType(_ searchType: Swift.String?) -> TiendeoCore.StatsSearchType
+}
+public struct ParentClipViewerPro {
+  public let siblings: [TiendeoViewerPro.ClipViewerPro]
+  public var clipId: Swift.String {
+    get
+  }
+}
+public struct CatalogContainerInputEntity : TiendeoViewerPro.CatalogInputProtocol {
+  public var catalogId: Swift.String
+  public var initialPage: Swift.Int
+  public var countryCode: Swift.String
+  public var city: Swift.String
+  public var modelName: Swift.String?
+  public var position: Swift.Int?
+  public var showExpiredCatalogs: Swift.Bool
+  public var latitude: Swift.Float?
+  public var longitude: Swift.Float?
+  public var clip: TiendeoViewerPro.ClipViewerPro?
+  public init(catalogId: Swift.String, initialPage: Swift.Int, countryCode: Swift.String, city: Swift.String, modelName: Swift.String? = nil, showExpiredCatalogs: Swift.Bool = false, position: Swift.Int? = nil, latitude: Swift.Float? = nil, longitude: Swift.Float? = nil, clip: TiendeoViewerPro.ClipViewerPro?)
+}
+public protocol CatalogInputProtocol {
+  var showExpiredCatalogs: Swift.Bool { get set }
+}
+public enum CatalogDetailEvents : TiendeoCore.LogEvent {
+  case pagesPreviewPressed(TiendeoViewerPro.CatalogDetailEvents.ParametersType)
+  case storesListPressed(TiendeoViewerPro.CatalogDetailEvents.ParametersType)
+  case recommenderBottomBarPressed(TiendeoViewerPro.CatalogDetailEvents.ParametersType)
+  case sharePressed(TiendeoViewerPro.CatalogDetailEvents.ParametersType)
+  case catalogPagePressed(TiendeoViewerPro.CatalogDetailEvents.ParametersType)
+  case storePressed(TiendeoViewerPro.CatalogDetailEvents.ParametersType)
+  case relatedCatalogPressed(TiendeoViewerPro.CatalogDetailEvents.ParametersType)
+  case saveTagBoxEvent(Swift.Bool, TiendeoViewerPro.CatalogDetailEvents.ParametersType)
+  case removeTagBoxEvent(Swift.Bool, TiendeoViewerPro.CatalogDetailEvents.ParametersType)
+  case favoriteStarTopBarPressed(Swift.Bool, TiendeoViewerPro.CatalogDetailEvents.ParametersType)
+  case tagIconPressed(TiendeoViewerPro.CatalogDetailEvents.ParametersType)
+  case recommendedLastPagePressed(TiendeoViewerPro.CatalogDetailEvents.ParametersType)
+  case recommendedPageSwiped(TiendeoViewerPro.CatalogDetailEvents.ParametersType)
+  case loyaltyPromocouponPressed(TiendeoViewerPro.CatalogDetailEvents.ParametersType)
+  case printPromocouponPressed(TiendeoViewerPro.CatalogDetailEvents.ParametersType)
+  case giftPromocouponPressed(TiendeoViewerPro.CatalogDetailEvents.ParametersType)
+  case swipeOnStoreCarrusel(TiendeoViewerPro.CatalogDetailEvents.ParametersType)
+  case storeDirectionClicked(TiendeoViewerPro.CatalogDetailEvents.ParametersType)
+  case storePhoneNumberClicked(TiendeoViewerPro.CatalogDetailEvents.ParametersType)
+  case swipeOnPagesCarrusel(TiendeoViewerPro.CatalogDetailEvents.ParametersType)
+  case catalogSectionPressed(Swift.String, Swift.String, Swift.String, TiendeoViewerPro.CatalogDetailEvents.ParametersType)
+  case showTagBoxesPressed(Swift.String, TiendeoViewerPro.CatalogDetailEvents.ParametersType)
+  case hideTagBoxesPressed(Swift.String, TiendeoViewerPro.CatalogDetailEvents.ParametersType)
+  public var parameters: TiendeoViewerPro.CatalogDetailEvents.ParametersType {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+}
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class ScrollToTopButton : UIKit.UIButton {
+  @_Concurrency.MainActor(unsafe) public static let buttonWidth: CoreFoundation.CGFloat
+  @_Concurrency.MainActor(unsafe) public static let buttonHeight: CoreFoundation.CGFloat
+  @_Concurrency.MainActor(unsafe) public static let buttonSpaceToMargin: CoreFoundation.CGFloat
+  @_Concurrency.MainActor(unsafe) required public init(origin: CoreFoundation.CGPoint, didPressButton: @escaping (() -> Swift.Void))
+  @objc deinit
+  @_Concurrency.MainActor(unsafe) public func show()
+  @_Concurrency.MainActor(unsafe) public func hide()
+}
+@objc @_inheritsConvenienceInitializers public class Toast : ObjectiveC.NSObject {
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension TiendeoViewerPro.Toast {
+  public class func showDidCopyCouponToast(in parentView: UIKit.UIView)
+}
+public enum CatalogEvents : TiendeoCore.LogEvent {
+  case firstView
+  case catalogOpened
+  case clientCatalogOpened
+  case firstViewSharingLocation
+  case firstViewNotSharingLocation
+  public var parameters: TiendeoViewerPro.CatalogEvents.ParametersType {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public static func == (a: TiendeoViewerPro.CatalogEvents, b: TiendeoViewerPro.CatalogEvents) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension TiendeoViewerPro.StatsOrigin : Swift.Equatable {}
+extension TiendeoViewerPro.StatsOrigin : Swift.Hashable {}
+extension TiendeoViewerPro.StatsOrigin : Swift.RawRepresentable {}
+extension TiendeoViewerPro.StatsEventName : Swift.Equatable {}
+extension TiendeoViewerPro.StatsEventName : Swift.Hashable {}
+extension TiendeoViewerPro.StatsEventName : Swift.RawRepresentable {}
+extension TiendeoViewerPro.ClipStatus : Swift.Equatable {}
+extension TiendeoViewerPro.ClipStatus : Swift.Hashable {}
+extension TiendeoViewerPro.ViewerType : Swift.Equatable {}
+extension TiendeoViewerPro.ViewerType : Swift.Hashable {}
+extension TiendeoViewerPro.PromoCouponResponse : Swift.Equatable {}
+extension TiendeoViewerPro.PromoCouponResponse : Swift.Hashable {}
+extension TiendeoViewerPro.PromoCouponResponse : Swift.RawRepresentable {}
+extension TiendeoViewerPro.CatalogEvents : Swift.Equatable {}
+extension TiendeoViewerPro.CatalogEvents : Swift.Hashable {}
